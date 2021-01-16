@@ -21,18 +21,18 @@
 			$app['act'] = $this->action ;
 
 			// Phân quyền 
-			if($this->action != 'loginUser' && $this->action != 'registerUser' && $this->action != 'logout'){
-				$user = self::checkUser();
-				if($user){
-					$this->user = $user['user'] ;
-				} else {
-					echo json_encode([
-						'success' => 0,
-						'status'  => 401,
-						'message' => 'NoAuthenticaion',
-					]);die();
-				}
-			}
+			// if($this->action != 'loginUser' && $this->action != 'registerUser' && $this->action != 'logout'){
+			// 	$user = self::checkUser();
+			// 	if($user){
+			// 		$this->user = $user['user'] ;
+			// 	} else {
+			// 		echo json_encode([
+			// 			'success' => 0,
+			// 			'status'  => 401,
+			// 			'message' => 'NoAuthenticaion',
+			// 		]);die();
+			// 	}
+			// }
 			if(method_exists($this,$this->action)){
 				if($this->action == 'edit' ||$this->action == "del" || $this->action == 'detail' || $this->action == 'getBlogEdit'){
 					$id = '';
